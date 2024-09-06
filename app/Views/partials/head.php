@@ -11,7 +11,7 @@
             echo $title;
         } ?>
     </title>
-
+    <script src="https://kit.fontawesome.com/f5a1d28d53.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="/public/css/style.css">
 </head>
@@ -26,14 +26,21 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-white">
             <?php if (isset($_SESSION['user'])) { ?>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/logout">Déconnexion</a>
+                    <a class="nav-link text-white" href="/logout"><i class="fa-solid fa-circle-xmark"></i> Déconnexion</a>
                 </li>
+            <?php if ($_SESSION['user']['role']== 'admin') { ?>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/subject"><i class="fa-solid fa-sitemap"></i> Sujets</a>
+                    </li>
+                    <?php
+                }
+                ?>
             <?php } else { ?>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/login">Connexion</a>
+                    <a class="nav-link text-white" href="/login"><i class="fa-solid fa-circle-play"></i> Connexion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/register">Inscription</a>
+                    <a class="nav-link text-white" href="/register"><i class="fa-solid fa-circle-plus"></i> Inscription</a>
                 </li>
             <?php } ?>
         </ul>

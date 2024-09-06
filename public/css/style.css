@@ -3,12 +3,15 @@
     min-height: 820px;
     background-size: cover;
     background-attachment: fixed;
+    color: #3f0060;
+    text-align: center;
+    padding: 20px;
 }
 .imgLogo{
     width: 60px;
 }
 nav, footer{
-    background-color: rgba(44, 19, 29, 0.7);
+    background-color: rgba(0, 168, 129, 0.7);
 }
 
 a{
@@ -19,4 +22,9 @@ a{
     font-size: 100px;
     font-weight: bolder;
     text-shadow: #FC0 1px 0 10px;
+}
+
+.colorPurpel{
+    background-color: #3f0060;
+    color: white;
 }

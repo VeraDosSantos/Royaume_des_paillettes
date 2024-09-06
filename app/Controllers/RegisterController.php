@@ -12,7 +12,7 @@ if (isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['password'
 
     // verification de la validité de l'email puis de la presence de l'email en bdd
     if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-        $error = "Invalid Email";
+        $error = "Adresse e-mail pas correcte.";
         require_once(__DIR__ . '/../Views/security/register.view.php');
         exit;
     }
@@ -26,7 +26,7 @@ if (isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['password'
     $user = $userStatement->fetch();
 
     if ($user) {
-        $error = "Email already exist";
+        $error = "L'adresse e-mail existe déjà !";
     } else {
         $passwordValid = preg_match("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/", $password);
 

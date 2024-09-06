@@ -29,21 +29,33 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
     if ($user) {
         if ($password == $user['password']) {
+
+            $roleUser = $user['id_role'];
+
+            $userQuery = "SELECT * FROM role WHERE id = :id_role";
+            $userStatement = $mysqlClient->prepare($userQuery);
+            $userStatement->bindParam(':id_role', $roleUser);
+            $userStatement->execute();
+            // quand l'element est unique on utilise fetch et non fetchAll
+            $myUser = $userStatement->fetch();
             $_SESSION['user'] = [
                 'id' => uniqid(),
                 'mail' => $user['mail'],
-                'role' => $user['id_role'],
                 'pseudo' => $user['pseudo'],
                 'idUser' => $user['id'],
+                'role' => $myUser['name'],
             ];
+
+
+
             redirectToRoute('/');
         } else {
-            $error = "incorrect Email or Password";
+            $error = "L'e-mail ou le mot de passe sont incorrecte !";
             require_once(__DIR__ . '/../Views/security/login.view.php');
             exit;
         }
     } else {
-        $error = "incorrect Email or Password";
+        $error = "L'e-mail ou le mot de passe sont incorrecte !";
     }
 }
 

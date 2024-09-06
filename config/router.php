@@ -6,9 +6,13 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 $routes = [
     '/' => 'HomeController.php',
+    //la connection
     '/login' => 'LoginController.php',
     '/logout' => 'LogoutController.php',
     '/register' => 'RegisterController.php',
+    //pour les admins
+    '/subject' => 'SubjectCreateController.php',
+
 ];
 
 if (array_key_exists($uri, $routes)) {

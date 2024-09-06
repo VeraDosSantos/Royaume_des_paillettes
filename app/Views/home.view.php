@@ -3,7 +3,6 @@ $title = "Bienvenue !";
 require_once(__DIR__ . "/partials/head.php");
 
 if (isset($_SESSION['user'])) {
-
     $user = $_SESSION['user']['pseudo'];
     echo '<h1>Bonjour ' . $user . '</h1>';
     ?>
