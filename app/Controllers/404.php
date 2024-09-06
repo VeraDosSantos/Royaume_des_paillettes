@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php
+$title = "404";
+require_once(__DIR__ . "/../Views/partials/head.php");
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404</title>
-</head>
-<body>
+    <h1 class="text-center my404 pt-5 text-white">404</h1>
+    <img src="/public/img/unicornDead.png" class="img-fluid mx-auto d-block" alt="...">
+    <button type="button" class="btn btn-warning mx-auto d-block p-5"><a href="/" class="text-light fs-1">Retour à l'accueil !</a></button>
 
-<h1>Erreur 404</h1>
-
-</body>
-
-</html>
+<?php
+require_once(__DIR__ . "/../Views/partials/footer.php");
+?>

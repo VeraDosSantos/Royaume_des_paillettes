@@ -17,19 +17,26 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
+<nav class="navbar navbar-expand-lg navbar-light text-white">
     <div class="container-fluid">
         <a class="navbar-brand mt-2 mt-lg-0 text-white" href="/">
             <img src="/public/img/Icon.png" alt="Logo" class="imgLogo">
             Royaume des Paillettes
         </a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-white">
-            <li class="nav-item">
-                <a class="nav-link text-white" href="/login">Connexion</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="/register">Inscription</a>
-            </li>
+            <?php if (isset($_SESSION['user'])) { ?>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/logout">Déconnexion</a>
+                </li>
+            <?php } else { ?>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/login">Connexion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/register">Inscription</a>
+                </li>
+            <?php } ?>
         </ul>
     </div>
 </nav>
+<div class="myBody">

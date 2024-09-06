@@ -1,6 +1,7 @@
-<footer class="bg-body-tertiary text-center text-lg-start">
+</div>
+<footer class="text-center text-light">
     <div class="text-center p-3">
-        © 2024 Copyright : nanaplouf
+        © Copyright : nanaplouf <?php echo date("Y")?>
     </div>
 </footer>
 </body>
