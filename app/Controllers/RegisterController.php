@@ -32,7 +32,7 @@ if (isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['password'
 
         if ($passwordValid) {
 
-            $userQuery = "INSERT INTO user (pseudo,mail,password, registration_date, id_role) VALUES (:pseudo, :mail, :password, :registration_date, :role)";
+            $userQuery = "INSERT INTO `user` (`pseudo`,`mail`,`password`, `registration_date`, `id_role`) VALUES (:pseudo, :mail, :password, :registration_date, :role)";
             // je prepare ma requete sql a l'envoie
             $userStatement = $mysqlClient->prepare($userQuery);
             //  je modifie les valeurs de ma requete en fonction des valeurs du formulaire
@@ -45,16 +45,15 @@ if (isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['password'
             // j'execute la requete
             $userStatement->execute();
 
-            // je redirige l'utilisateur vers la page user pour qu'il vois le nouveau produit
+            // je redirige l'utilisateur vers la page login
             redirectToRoute('/login');
         } else {
             $error = "
-            - at least 8 characters <br>
-            - at least one character in uppercase <br>
-            - at lest one character in lowercase<br>
-            - at least one digit<br>
-            - at least one special character<br>
-            ";
+            - au moins 8 caractères <br>
+            - au moins un caractère en majuscule <br>
+            - au moins un caractère en minuscule<br>
+            - au moins un chiffre<br>
+            - au moins un caractère spécial<br>";
         }
     }
 }

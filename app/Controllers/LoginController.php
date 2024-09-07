@@ -7,7 +7,7 @@ if (isset($_SESSION['user'])) {
 
 if (isset($_POST['email']) && isset($_POST['password'])) {
 
-    // on met les information du formulaire dans des variable
+    // on met les informations du formulaire dans des variables
     $mail = $_POST['email'];
     $password = $_POST['password'];
 
@@ -19,7 +19,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     }
 
     // je recupere mon utilisateur en base de donnee et je les met dans la variable user
-    $userQuery = "SELECT * FROM user WHERE mail = :mail";
+    $userQuery = "SELECT * FROM `user` WHERE `mail` = :mail";
     $userStatement = $mysqlClient->prepare($userQuery);
     $userStatement->bindParam(':mail', $mail);
     $userStatement->execute();
@@ -32,11 +32,10 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
             $roleUser = $user['id_role'];
 
-            $userQuery = "SELECT * FROM role WHERE id = :id_role";
+            $userQuery = "SELECT * FROM `role` WHERE `id` = :id_role";
             $userStatement = $mysqlClient->prepare($userQuery);
             $userStatement->bindParam(':id_role', $roleUser);
             $userStatement->execute();
-            // quand l'element est unique on utilise fetch et non fetchAll
             $myUser = $userStatement->fetch();
             $_SESSION['user'] = [
                 'id' => uniqid(),
@@ -45,8 +44,6 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                 'idUser' => $user['id'],
                 'role' => $myUser['name'],
             ];
-
-
 
             redirectToRoute('/');
         } else {

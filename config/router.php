@@ -11,7 +11,12 @@ $routes = [
     '/logout' => 'LogoutController.php',
     '/register' => 'RegisterController.php',
     //pour les admins
-    '/subject' => 'SubjectCreateController.php',
+    '/subject-create' => 'SubjectCreateController.php',
+    //Pour les users
+    '/subject' => 'SubjectController.php',
+    //les articles
+    '/article-create' => 'ArticleController.php',
+    '/article' => 'ArticleController.php',
 
 ];
 

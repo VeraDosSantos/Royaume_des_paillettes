@@ -30,7 +30,7 @@
                 </li>
             <?php if ($_SESSION['user']['role']== 'admin') { ?>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="/subject"><i class="fa-solid fa-sitemap"></i> Sujets</a>
+                        <a class="nav-link text-white" href="/subject-create"><i class="fa-solid fa-sitemap"></i> Sujets</a>
                     </li>
                     <?php
                 }
