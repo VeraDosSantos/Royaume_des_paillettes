@@ -15,9 +15,9 @@ $routes = [
     //Pour les users
     '/subject' => 'SubjectController.php',
     //les articles
-    '/article-create' => 'ArticleController.php',
-    '/article' => 'ArticleController.php',
-
+    '/article-create' => 'ArticleCreateController.php', //creation d'article
+    '/article' => 'ArticleController.php', //vue d'un article + suppression
+    '/article-edit' => 'ArticleEditController.php', //modifier un article
 ];
 
 if (array_key_exists($uri, $routes)) {

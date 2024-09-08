@@ -6,14 +6,12 @@ require_once(__DIR__ . "/partials/head.php");
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user']['pseudo'];
     echo '<h1>Bonjour ' . $user . '</h1>';
-    ?>
-    <button type="button" class="btn btn-success"><a href="/createArticle">Ajouter</a></button>
-    <?php
+
     if(isset($subject)){
         foreach($subject as $value){
             $idSubject = $value['id'];
             ?>
-            <div class="card">
+            <div class="card m-3">
                 <div class="card-header">
                     <h5 class="card-title"><?php echo $value['name']?></h5>
                 </div>
@@ -22,7 +20,7 @@ if (isset($_SESSION['user'])) {
                     <a href="/subject?id=<?php echo $idSubject ?>" class="btn btn-primary">Go voir le sujet</a>
                 </div>
             </div>
-                <?php
+        <?php
         }
     }
 } else { ?>
