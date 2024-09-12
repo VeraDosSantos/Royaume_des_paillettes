@@ -6,7 +6,7 @@ if (isset($_GET['id'])) {
 
     function getArticleById($idValue) {
         global $mysqlClient;
-        $query = "SELECT `article`.`id`, `article`.`title`, `article`.`text`, `article`.`creation_date`, `article`.`modification_date`, `article`.`id_user`, `article`.`id_subject`, `user`.`pseudo` 
+        $query = "SELECT `article`.`id`, `article`.`title`, `article`.`description`, `article`.`creation_date`, `article`.`modification_date`, `article`.`id_user`, `article`.`id_subject`, `user`.`pseudo` 
                     FROM `article` 
                     INNER JOIN `user` ON `article`.`id_user` = `user`.`id` 
                     WHERE `article`.`id` = :id_article";

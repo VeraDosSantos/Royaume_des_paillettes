@@ -8,7 +8,7 @@ if(isset($_GET['subject'])){
         $title = $_POST['title'];
         $text = $_POST['text'];
 
-        $query = 'INSERT INTO `article` ( `title`, `text`, `creation_date`, `id_user`, `id_subject`) VALUES ( :title, :text, :creation_date, :id_user, :id_subject)';
+        $query = 'INSERT INTO `article` ( `title`, `description`, `creation_date`, `id_user`, `id_subject`) VALUES ( :title, :text, :creation_date, :id_user, :id_subject)';
         $queryStatement = $mysqlClient->prepare($query);
         $queryStatement->bindValue(':title', $title);
         $queryStatement->bindValue(':text', $text);

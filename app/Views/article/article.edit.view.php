@@ -10,8 +10,8 @@ require_once(__DIR__ . "/../partials/head.php");
                 <input type="text" class="form-control" name='title' value="<?= $resultArticle['title']?>">
             </div>
             <div class="mb-1">
-                <label for="text" class="form-label">Dit moi plus</label>
-                <textarea class="form-control" name="text"><?= $resultArticle['text']?></textarea>
+                <label for="description" class="form-label">Dit moi plus</label>
+                <textarea class="form-control" name="description"><?= $resultArticle['description']?></textarea>
             </div>
             <button type="submit" class="btn colorPurpel mt-3">Modifier mon article</button>
             <button type="button" class="btn colorPurpel"><a href="/article?id=<?= $resultArticle['id'] ?>" class="text-light">Annuler</a></button>

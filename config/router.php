@@ -15,8 +15,10 @@ $routes = [
     '/login' => 'LoginController.php',
     '/logout' => 'LogoutController.php',
     '/register' => 'RegisterController.php',
+    '/profile' => 'UserController.php',
     //pour les admins
     '/subject-create' => 'SubjectCreateController.php',
+    '/users' => 'AllUsersController.php',
     //Pour les users
     '/subject' => 'SubjectController.php',
     //les articles

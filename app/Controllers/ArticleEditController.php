@@ -7,7 +7,7 @@ if(isset($_GET['id']) && isset($_SESSION['user']['idUser'])){
     function myArticle($idArticle,$idUser)
     {
         global $mysqlClient;
-        $query = "SELECT `article`.`id`, `article`.`title`, `article`.`text`, `article`.`creation_date`, `article`.`modification_date`, `article`.`id_user` 
+        $query = "SELECT `article`.`id`, `article`.`title`, `article`.`description`, `article`.`creation_date`, `article`.`modification_date`, `article`.`id_user` 
                     FROM `article` 
                     WHERE `article`.`id` = :id_article AND `article`.`id_user` = :idUser";
         $queryStatement = $mysqlClient->prepare($query);
@@ -21,14 +21,14 @@ if(isset($_GET['id']) && isset($_SESSION['user']['idUser'])){
 
     if($resultArticle){
 
-        if(isset($_POST['title']) && isset($_POST['text'])){
+        if(isset($_POST['title']) && isset($_POST['description'])){
             $title = $_POST['title'];
-            $text = $_POST['text'];
+            $description = $_POST['description'];
 
-            $query = 'UPDATE `article` SET `title` = :title, `text` = :text, `modification_date` = :modification_date  WHERE id = :id';
+            $query = 'UPDATE `article` SET `title` = :title, `description` = :description, `modification_date` = :modification_date  WHERE id = :id';
             $queryStatement = $mysqlClient->prepare($query);
             $queryStatement->bindValue(':title', $title);
-            $queryStatement->bindValue(':text', $text);
+            $queryStatement->bindValue(':description', $description);
             $queryStatement->bindValue(':modification_date', date("Y-m-d"));
             $queryStatement->bindValue(':id', $idArticle);
 

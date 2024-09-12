@@ -2,9 +2,12 @@
 $title = "Création d'un sujet";
 require_once(__DIR__ . "/../partials/head.php");
 ?>
-<h1>Hello</h1>
+<h1><?=$nameSubject['name']?></h1>
+<p><?=$nameSubject['description']?></p>
+
     <button type="button" class="btn btn-warning mx-auto d-block p-1"><a href="/article-create?subject=1" class="text-light">Créer un article</a></button>
 <?php
+
     if(isset($articles) && count($articles) > 0){
     foreach($articles as $article){
     ?>
