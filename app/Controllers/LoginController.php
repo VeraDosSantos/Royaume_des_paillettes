@@ -28,7 +28,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
 
     if ($user) {
-        if ($password == $user['password']) {
+        if (password_verify($password, $user['password'])) {
 
             $roleUser = $user['id_role'];
 

@@ -31,6 +31,7 @@ if (isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['password'
         $passwordValid = preg_match("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/", $password);
 
         if ($passwordValid) {
+            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
             $userQuery = "INSERT INTO `user` (`pseudo`,`mail`,`password`, `registration_date`, `id_role`) VALUES (:pseudo, :mail, :password, :registration_date, :role)";
             // je prepare ma requete sql a l'envoie
@@ -38,7 +39,7 @@ if (isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['password'
             //  je modifie les valeurs de ma requete en fonction des valeurs du formulaire
             $userStatement->bindParam(':pseudo', $pseudo);
             $userStatement->bindParam(':mail', $mail);
-            $userStatement->bindParam(':password', $password);
+            $userStatement->bindParam(':password', $passwordHash);
             $userStatement->bindParam(':registration_date', $registration_date);
             $userStatement->bindParam(':role', $role);
 

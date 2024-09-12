@@ -16,7 +16,7 @@ require_once(__DIR__ . "/../partials/head.php");
             <button type="submit" class="btn colorPurpel mt-3">Connexion</button>
         </div>
     </form>
-<?php if (isset($error)) {
+<?php if(isset($error)) {
     echo "<p class='text-danger'>" . $error . "<p>";
 } ?>
 
