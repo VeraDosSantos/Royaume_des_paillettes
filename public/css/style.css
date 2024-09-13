@@ -10,7 +10,7 @@
 .imgLogo{
     width: 60px;
 }
-nav, footer{
+nav, .myFooter{
     background-color: rgba(0, 168, 129, 0.7);
 }
 
@@ -27,4 +27,13 @@ a{
 .colorPurpel{
     background-color: #3f0060;
     color: white;
+}
+
+.btn-comment{
+    background-color: #fd166f;
+    color: white;
+}
+
+.btn-comment:hover{
+    background-color: #ff478d;
 }

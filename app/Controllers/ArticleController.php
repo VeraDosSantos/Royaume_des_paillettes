@@ -33,6 +33,11 @@ if (isset($_GET['id'])) {
         redirectToRoute('/');
     }
 
+    if(isset($_POST['description'])){
+        $description = $_POST['description'];
+
+    }
+
     require_once (__DIR__ . "/../Views/article/article.view.php");
 
 }else{
